@@ -118,7 +118,7 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-8">
               {navigationSections.map((section) => (
                 <button
                   key={section.id}
@@ -144,7 +144,7 @@ const Header = () => {
               {/* Mobile Menu Button */}
               <button
                 onClick={toggleMenu}
-                className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+                className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
                 aria-label="Toggle menu"
               >
                 <Icon name={isMenuOpen ? "X" : "Menu"} size={24} />
@@ -234,7 +234,7 @@ const Header = () => {
         <Button
           variant="default"
           fullWidth
-          className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-cta"
+          className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-cta text-sm py-3"
           onClick={() => navigate('/checkout')}
         >
           Start My YouTube Empire

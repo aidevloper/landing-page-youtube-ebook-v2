@@ -69,9 +69,9 @@ const LandingPage = () => {
       <FinalCTA />
       
       {/* Footer */}
-      <footer className="bg-primary text-white py-12">
+      <footer className="bg-primary text-white py-8 sm:py-12">
         <div className="container-max">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div>
               <h3 className="font-bold text-xl mb-4 font-playfair">YouTube Automation</h3>
               <p className="text-white/80 text-sm">
@@ -104,8 +104,8 @@ const LandingPage = () => {
             </div>
           </div>
           
-          <div className="border-t border-white/20 mt-8 pt-8 text-center">
-            <p className="text-white/60 text-sm">
+          <div className="border-t border-white/20 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
+            <p className="text-white/60 text-xs sm:text-sm">
               © {new Date().getFullYear()} YouTube Automation Ebook. All rights reserved.
             </p>
             <p className="text-white/60 text-xs mt-2">
