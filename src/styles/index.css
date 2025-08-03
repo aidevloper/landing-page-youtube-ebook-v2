@@ -98,3 +98,111 @@ html { font-size: 14px; }
   /* Reduce shadow complexity */
   .shadow-2xl { box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important; }
 }
+
+/* Performance Optimizations for Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  /* Optimize for smooth scrolling */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reduce animation complexity on mobile for better performance */
+@media (max-width: 768px) {
+  .floating-animation {
+    animation: none !important;
+  }
+  
+  .pulse-glow {
+    animation: none !important;
+  }
+  
+  .glow-effect {
+    animation: none !important;
+  }
+  
+  /* Reduce blur effects */
+  .blur-3xl { filter: blur(0.5rem) !important; }
+  .blur-2xl { filter: blur(0.25rem) !important; }
+  .blur-xl { filter: blur(0.125rem) !important; }
+  
+  /* Simplify gradients */
+  .premium-gradient { background: #1a365d !important; }
+  .accent-gradient { background: #f6e05e !important; }
+  .success-gradient { background: #68d391 !important; }
+  
+  /* Reduce shadow complexity */
+  .shadow-2xl { box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important; }
+  .shadow-xl { box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important; }
+}
+
+/* Optimize animations for better performance */
+.floating-animation {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.pulse-glow {
+  will-change: box-shadow;
+}
+
+.glow-effect {
+  will-change: box-shadow;
+}
+
+/* Reduce repaints during scroll */
+.fixed, .sticky {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Optimize backdrop blur */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Disable animations on devices that prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize for 60fps scrolling */
+* {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Reduce layout thrashing */
+.container-max {
+  contain: layout style paint;
+}
+
+.section-padding {
+  contain: layout style paint;
+}
+
+/* Optimize images */
+img {
+  max-width: 100%;
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}

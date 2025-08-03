@@ -14,9 +14,11 @@ const HeroSection = () => {
   });
 
   useEffect(() => {
+    // Optimized student counter animation - less frequent updates
     const interval = setInterval(() => {
-      setCurrentStudentCount(prev => prev + Math.floor(Math.random() * 3));
-    }, 5000);
+      setCurrentStudentCount(prev => prev + Math.floor(Math.random() * 2));
+    }, 10000); // Increased interval for better performance
+
     return () => clearInterval(interval);
   }, []);
 
@@ -45,11 +47,11 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[60vh] sm:min-h-screen premium-gradient overflow-hidden">
-      {/* Mobile-optimized background */}
+      {/* Optimized background for better performance */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-5 w-24 h-24 sm:top-20 sm:left-10 sm:w-72 sm:h-72 bg-emerald-100/20 rounded-full blur-3xl floating-animation"></div>
-        <div className="absolute bottom-10 right-5 w-32 h-32 sm:bottom-20 sm:right-10 sm:w-96 sm:h-96 bg-success/15 rounded-full blur-3xl floating-animation" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[800px] sm:h-[800px] bg-emerald-50/10 rounded-full blur-3xl pulse-glow"></div>
+        <div className="absolute top-10 left-5 w-24 h-24 sm:top-20 sm:left-10 sm:w-72 sm:h-72 bg-emerald-100/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-5 w-32 h-32 sm:bottom-20 sm:right-10 sm:w-96 sm:h-96 bg-success/15 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[800px] sm:h-[800px] bg-emerald-50/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 container-max py-8 sm:py-16 px-4 sm:px-6 lg:px-8">
@@ -146,8 +148,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Mobile-optimized scroll indicator */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 animate-bounce">
+      {/* Optimized scroll indicator */}
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-white/70">
         <div className="flex flex-col items-center space-y-1 sm:space-y-2">
           <Icon name="ChevronDown" size={20} className="sm:w-6 sm:h-6" />
           <span className="text-xs font-medium">Scroll to explore</span>

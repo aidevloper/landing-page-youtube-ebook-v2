@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
@@ -36,36 +36,54 @@ const Header = () => {
     }
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      setScrollProgress(progress);
+  // Optimized scroll handler with proper throttling
+  const handleScroll = useCallback(() => {
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    setScrollProgress(progress);
 
-      // Update active section based on scroll position
-      const sections = navigationSections.map(section => ({
+    // Only update active section if scroll position changed significantly
+    const currentScrollTop = Math.floor(scrollTop / 100) * 100; // Round to nearest 100px
+    
+    // Cache section elements to avoid repeated DOM queries
+    if (!window.sectionElements) {
+      window.sectionElements = navigationSections.map(section => ({
         ...section,
         element: document.getElementById(section.id)
       })).filter(section => section.element);
+    }
 
-      const currentSection = sections.find(section => {
-        const rect = section.element.getBoundingClientRect();
-        return rect.top <= 100 && rect.bottom >= 100;
-      });
+    const currentSection = window.sectionElements.find(section => {
+      const rect = section.element.getBoundingClientRect();
+      return rect.top <= 100 && rect.bottom >= 100;
+    });
 
-      if (currentSection) {
-        setActiveSection(currentSection.id);
+    if (currentSection && currentSection.id !== activeSection) {
+      setActiveSection(currentSection.id);
+    }
+  }, [activeSection, navigationSections]);
+
+  useEffect(() => {
+    let ticking = false;
+    
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    const throttledScroll = () => {
-      requestAnimationFrame(handleScroll);
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', throttledScroll);
+      // Clear cached elements on cleanup
+      delete window.sectionElements;
     };
-
-    window.addEventListener('scroll', throttledScroll);
-    return () => window.removeEventListener('scroll', throttledScroll);
-  }, []);
+  }, [handleScroll]);
 
   const scrollToSection = (sectionId, offset = 80) => {
     const element = document.getElementById(sectionId);
