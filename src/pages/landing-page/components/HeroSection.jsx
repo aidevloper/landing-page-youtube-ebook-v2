@@ -128,7 +128,19 @@ const HeroSection = () => {
                   src="/assets/images/youtube1-1753769145253.jpg"
                   alt="Build a Six-Figure Faceless YouTube Channel in 2025 - AI Powered Ebook"
                   className="w-full h-auto rounded-lg sm:rounded-xl shadow-2xl overflow-hidden"
-                  style={{ scrollBehavior: 'auto', overflow: 'hidden' }}
+                  style={{ 
+                    scrollBehavior: 'auto', 
+                    overflow: 'hidden',
+                    pointerEvents: 'none',
+                    userSelect: 'none',
+                    touchAction: 'none',
+                    WebkitTouchCallout: 'none',
+                    WebkitTapHighlightColor: 'transparent'
+                  }}
+                  onWheel={(e) => e.preventDefault()}
+                  onTouchMove={(e) => e.preventDefault()}
+                  onTouchStart={(e) => e.preventDefault()}
+                  onTouchEnd={(e) => e.preventDefault()}
                 />
               </div>
               

@@ -305,22 +305,20 @@ const CheckoutPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       <Header />
       
-      <div className="pt-24 pb-16">
-        <div className="container-max">
+      <div className="pt-20 sm:pt-24 pb-8 sm:pb-16">
+        <div className="container-max px-4 sm:px-6">
           {/* Page Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4 font-playfair">
+          <div className="text-center mb-8 sm:mb-12">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 sm:mb-4 font-playfair leading-tight">
               Complete Your <span className="text-emerald-600">Purchase</span>
             </h1>
-            <p className="text-xl text-text-secondary max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto px-4">
               You're just one step away from starting your YouTube automation journey
             </p>
           </div>
 
-
-
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
               
               {/* Left Column - Order Summary */}
               <div className="order-2 lg:order-1">

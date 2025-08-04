@@ -233,59 +233,59 @@ const CheckoutPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       <Header />
       
-      <div className="pt-24 pb-16">
-        <div className="container-max">
+      <div className="pt-20 sm:pt-24 pb-8 sm:pb-16">
+        <div className="container-max px-4 sm:px-6">
           {/* Page Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4 font-playfair">
+          <div className="text-center mb-8 sm:mb-12">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 sm:mb-4 font-playfair leading-tight">
               Complete Your <span className="text-emerald-600">Purchase</span>
             </h1>
-            <p className="text-xl text-text-secondary max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto px-4">
               You're just one step away from starting your YouTube automation journey
             </p>
           </div>
 
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
               
               {/* Left Column - Order Summary */}
               <div className="order-2 lg:order-1">
-                <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
+                <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 sticky top-20 sm:top-24">
                   {/* Product Information */}
-                  <div className="flex items-start space-x-4 mb-8">
-                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl flex items-center justify-center">
-                      <Icon name="BookOpen" size={24} className="text-emerald-600" />
+                  <div className="flex items-start space-x-3 sm:space-x-4 mb-6 sm:mb-8">
+                    <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-lg sm:rounded-xl flex items-center justify-center">
+                      <Icon name="BookOpen" size={20} className="sm:text-2xl text-emerald-600" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-primary mb-2">{productDetails.name}</h3>
-                      <p className="text-text-secondary text-sm">{productDetails.description}</p>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg sm:text-xl font-bold text-primary mb-1 sm:mb-2 leading-tight">{productDetails.name}</h3>
+                      <p className="text-text-secondary text-xs sm:text-sm leading-relaxed">{productDetails.description}</p>
                     </div>
                   </div>
 
                   {/* Pricing */}
-                  <div className="bg-gradient-to-r from-emerald-50 to-success/10 rounded-xl p-6 mb-8">
-                    <div className="flex justify-between items-center mb-4">
-                      <span className="text-text-secondary">Original Price:</span>
-                      <span className="text-text-secondary line-through">
+                  <div className="bg-gradient-to-r from-emerald-50 to-success/10 rounded-lg sm:rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
+                    <div className="flex justify-between items-center mb-3 sm:mb-4">
+                      <span className="text-text-secondary text-sm sm:text-base">Original Price:</span>
+                      <span className="text-text-secondary line-through text-sm sm:text-base">
                         {productDetails.currency}{productDetails.originalPrice.toLocaleString('en-IN')}
                       </span>
                     </div>
-                    <div className="flex justify-between items-center mb-4">
-                      <span className="text-lg font-semibold text-primary">Your Price:</span>
-                      <span className="text-3xl font-bold text-emerald-600">
+                    <div className="flex justify-between items-center mb-3 sm:mb-4">
+                      <span className="text-base sm:text-lg font-semibold text-primary">Your Price:</span>
+                      <span className="text-2xl sm:text-3xl font-bold text-emerald-600">
                         {productDetails.currency}{productDetails.price.toLocaleString('en-IN')}
                       </span>
                     </div>
-                    <div className="flex justify-between items-center mb-4">
-                      <span className="text-success font-medium">You Save:</span>
-                      <span className="text-success font-bold">
+                    <div className="flex justify-between items-center mb-3 sm:mb-4">
+                      <span className="text-success font-medium text-sm sm:text-base">You Save:</span>
+                      <span className="text-success font-bold text-sm sm:text-base">
                         {productDetails.currency}{(productDetails.originalPrice - productDetails.price).toLocaleString('en-IN')}
                       </span>
                     </div>
-                    <div className="border-t border-emerald-200 pt-4">
+                    <div className="border-t border-emerald-200 pt-3 sm:pt-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-lg font-bold text-primary">Total:</span>
-                        <span className="text-3xl font-bold text-primary">
+                        <span className="text-base sm:text-lg font-bold text-primary">Total:</span>
+                        <span className="text-2xl sm:text-3xl font-bold text-primary">
                           {productDetails.currency}{productDetails.price.toLocaleString('en-IN')}
                         </span>
                       </div>
@@ -293,12 +293,12 @@ const CheckoutPage = () => {
                   </div>
 
                   {/* Bonus Value */}
-                  <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-xl p-6 mb-8">
-                    <div className="flex items-center mb-3">
-                      <Icon name="Gift" size={20} className="text-yellow-600 mr-2" />
-                      <h4 className="font-bold text-primary">Bonus Materials Included</h4>
+                  <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg sm:rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
+                    <div className="flex items-center mb-2 sm:mb-3">
+                      <Icon name="Gift" size={18} className="sm:text-xl text-yellow-600 mr-2" />
+                      <h4 className="font-bold text-primary text-sm sm:text-base">Bonus Materials Included</h4>
                     </div>
-                    <p className="text-sm text-text-secondary mb-2">
+                    <p className="text-xs sm:text-sm text-text-secondary mb-2 leading-relaxed">
                       Get ₹{productDetails.bonusValue.toLocaleString('en-IN')} worth of bonus materials FREE
                     </p>
                     <ul className="text-xs space-y-1 text-text-secondary">
@@ -311,16 +311,16 @@ const CheckoutPage = () => {
                   </div>
 
                   {/* Trust Badges */}
-                  <div className="space-y-4">
-                    <h4 className="font-bold text-primary mb-4">Why Choose Us?</h4>
+                  <div className="space-y-3 sm:space-y-4">
+                    <h4 className="font-bold text-primary mb-3 sm:mb-4 text-sm sm:text-base">Why Choose Us?</h4>
                     {trustBadges.map((badge, index) => (
-                      <div key={index} className="flex items-start space-x-3">
-                        <div className="flex-shrink-0 w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center">
-                          <Icon name={badge.icon} size={16} className="text-emerald-600" />
+                      <div key={index} className="flex items-start space-x-2 sm:space-x-3">
+                        <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-emerald-100 rounded-md sm:rounded-lg flex items-center justify-center">
+                          <Icon name={badge.icon} size={14} className="sm:text-base text-emerald-600" />
                         </div>
-                        <div>
-                          <div className="font-semibold text-primary text-sm">{badge.text}</div>
-                          <div className="text-text-secondary text-xs">{badge.desc}</div>
+                        <div className="min-w-0 flex-1">
+                          <div className="font-semibold text-primary text-xs sm:text-sm leading-tight">{badge.text}</div>
+                          <div className="text-text-secondary text-xs leading-relaxed">{badge.desc}</div>
                         </div>
                       </div>
                     ))}
@@ -330,31 +330,31 @@ const CheckoutPage = () => {
 
               {/* Right Column - Checkout Form */}
               <div className="order-1 lg:order-2">
-                <form onSubmit={handleSubmit} className="space-y-8">
+                <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
                   
                   {/* Contact Information */}
-                  <div className="bg-white rounded-2xl shadow-lg p-8">
-                    <h3 className="text-2xl font-bold text-primary mb-6 font-playfair">Contact Information</h3>
+                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8">
+                    <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6 font-playfair leading-tight">Contact Information</h3>
                     
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6">
                       <Input
                         type="email"
                         label="Email Address *"
                         value={formData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
                         required
-                        className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors"
+                        className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors text-base"
                         placeholder="your@email.com"
                       />
                       
-                      <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <Input
                           type="text"
                           label="First Name *"
                           value={formData.firstName}
                           onChange={(e) => handleInputChange('firstName', e.target.value)}
                           required
-                          className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors"
+                          className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors text-base"
                           placeholder="John"
                         />
                         <Input
@@ -363,7 +363,7 @@ const CheckoutPage = () => {
                           value={formData.lastName}
                           onChange={(e) => handleInputChange('lastName', e.target.value)}
                           required
-                          className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors"
+                          className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors text-base"
                           placeholder="Doe"
                         />
                       </div>
@@ -374,33 +374,33 @@ const CheckoutPage = () => {
                         value={formData.phone}
                         onChange={(e) => handleInputChange('phone', e.target.value)}
                         required
-                        className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors"
+                        className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors text-base"
                         placeholder="9876543210"
                       />
                     </div>
                   </div>
 
                   {/* Billing Address (Optional) */}
-                  <div className="bg-white rounded-2xl shadow-lg p-8">
-                    <h3 className="text-2xl font-bold text-primary mb-6 font-playfair">Billing Address (Optional)</h3>
+                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8">
+                    <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6 font-playfair leading-tight">Billing Address (Optional)</h3>
                     
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6">
                       <Input
                         type="text"
                         label="Address"
                         value={formData.address}
                         onChange={(e) => handleInputChange('address', e.target.value)}
-                        className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors"
+                        className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors text-base"
                         placeholder="123 Main Street"
                       />
                       
-                      <div className="grid md:grid-cols-3 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <Input
                           type="text"
                           label="City"
                           value={formData.city}
                           onChange={(e) => handleInputChange('city', e.target.value)}
-                          className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors"
+                          className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors text-base"
                           placeholder="Mumbai"
                         />
                         <Input
@@ -408,7 +408,7 @@ const CheckoutPage = () => {
                           label="ZIP Code"
                           value={formData.zipCode}
                           onChange={(e) => handleInputChange('zipCode', e.target.value)}
-                          className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors"
+                          className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors text-base"
                           placeholder="400001"
                         />
                         <Input
@@ -416,7 +416,7 @@ const CheckoutPage = () => {
                           label="Country"
                           value={formData.country}
                           onChange={(e) => handleInputChange('country', e.target.value)}
-                          className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors"
+                          className="border-2 border-gray-200 focus:border-emerald-500 hover:border-emerald-300 transition-colors text-base"
                           placeholder="India"
                         />
                       </div>
@@ -424,36 +424,36 @@ const CheckoutPage = () => {
                   </div>
 
                   {/* Payment Method */}
-                  <div className="bg-white rounded-2xl shadow-lg p-8">
-                    <h3 className="text-2xl font-bold text-primary mb-6 font-playfair">Payment Method</h3>
+                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8">
+                    <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6 font-playfair leading-tight">Payment Method</h3>
 
                     {/* Razorpay Configuration Status */}
                     <RazorpayStatus />
 
                     {/* Payment Options */}
-                    <div className="space-y-4 mb-6">
+                    <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                       {paymentMethods.map((method) => (
                         <button
                           key={method.id}
                           type="button"
                           onClick={() => setPaymentMethod(method.id)}
-                          className={`w-full p-4 rounded-xl border-2 transition-all text-left ${
+                          className={`w-full p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 transition-all text-left ${
                             paymentMethod === method.id
                               ? 'border-emerald-500 bg-emerald-50'
                               : 'border-gray-200 hover:border-emerald-300'
                           }`}
                         >
-                          <div className="flex items-center space-x-4">
-                            <Icon name={method.icon} size={24} className={
+                          <div className="flex items-center space-x-3 sm:space-x-4">
+                            <Icon name={method.icon} size={20} className={`sm:text-2xl ${
                               paymentMethod === method.id ? 'text-emerald-600' : 'text-gray-400'
-                            } />
-                            <div>
-                              <div className={`font-semibold ${
+                            }`} />
+                            <div className="min-w-0 flex-1">
+                              <div className={`font-semibold text-sm sm:text-base ${
                                 paymentMethod === method.id ? 'text-emerald-600' : 'text-gray-900'
                               }`}>
                                 {method.name}
                               </div>
-                              <div className="text-sm text-gray-500">{method.description}</div>
+                              <div className="text-xs sm:text-sm text-gray-500 leading-relaxed">{method.description}</div>
                             </div>
                           </div>
                         </button>
@@ -461,12 +461,12 @@ const CheckoutPage = () => {
                     </div>
 
                     {/* Razorpay Info */}
-                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
-                      <div className="flex items-start space-x-3">
-                        <Icon name="Info" size={20} className="text-blue-600 mt-0.5" />
-                        <div className="text-sm">
-                          <div className="font-semibold text-blue-800 mb-1">Secure Payment via Razorpay</div>
-                          <div className="text-blue-700">
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg sm:rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
+                      <div className="flex items-start space-x-2 sm:space-x-3">
+                        <Icon name="Info" size={18} className="sm:text-xl text-blue-600 mt-0.5" />
+                        <div className="text-xs sm:text-sm min-w-0 flex-1">
+                          <div className="font-semibold text-blue-800 mb-1 leading-tight">Secure Payment via Razorpay</div>
+                          <div className="text-blue-700 leading-relaxed">
                             Your payment is processed securely through Razorpay. We support all major payment methods including cards, UPI, net banking, and digital wallets.
                           </div>
                         </div>
@@ -475,19 +475,19 @@ const CheckoutPage = () => {
                   </div>
 
                   {/* Security & Complete Purchase */}
-                  <div className="bg-white rounded-2xl shadow-lg p-8">
+                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8">
                     {/* Security Features */}
-                    <div className="flex justify-center items-center space-x-8 mb-8">
+                    <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
                       {securityFeatures.map((feature, index) => (
-                        <div key={index} className="flex items-center space-x-2 text-sm text-text-secondary">
-                          <Icon name={feature.icon} size={16} className="text-emerald-600" />
-                          <span>{feature.text}</span>
+                        <div key={index} className="flex items-center space-x-2 text-xs sm:text-sm text-text-secondary">
+                          <Icon name={feature.icon} size={14} className="sm:text-base text-emerald-600" />
+                          <span className="whitespace-nowrap">{feature.text}</span>
                         </div>
                       ))}
                     </div>
 
                     {/* Complete Purchase Buttons */}
-                    <div className="space-y-4">
+                    <div className="space-y-3 sm:space-y-4">
                       <Button
                         type="submit"
                         variant="default"
@@ -495,7 +495,7 @@ const CheckoutPage = () => {
                         fullWidth
                         loading={isProcessing}
                         disabled={orderCreated}
-                        className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-bold text-xl py-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
+                        className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-bold text-lg sm:text-xl py-4 sm:py-6 rounded-lg sm:rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
                         iconName={isProcessing ? null : "CreditCard"}
                         iconPosition="left"
                       >
@@ -511,7 +511,7 @@ const CheckoutPage = () => {
                         size="xl"
                         fullWidth
                         onClick={handleDemoPayment}
-                        className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 font-semibold py-6 rounded-xl transition-all duration-200"
+                        className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 font-semibold py-4 sm:py-6 rounded-lg sm:rounded-xl transition-all duration-200 text-base sm:text-lg"
                         iconName="Play"
                         iconPosition="left"
                       >
@@ -519,17 +519,17 @@ const CheckoutPage = () => {
                       </Button>
                     </div>
 
-                    <div className="text-center mt-4 text-sm text-text-secondary">
+                    <div className="text-center mt-3 sm:mt-4 text-xs sm:text-sm text-text-secondary leading-relaxed">
                       By completing your purchase, you agree to our Terms of Service and Privacy Policy
                     </div>
 
                     {/* Money Back Guarantee */}
-                    <div className="mt-6 p-4 bg-gradient-to-r from-emerald-50 to-success/10 rounded-xl text-center">
+                    <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gradient-to-r from-emerald-50 to-success/10 rounded-lg sm:rounded-xl text-center">
                       <div className="flex items-center justify-center mb-2">
-                        <Icon name="Shield" size={20} className="text-emerald-600 mr-2" />
-                        <span className="font-bold text-emerald-700">30-Day Money-Back Guarantee</span>
+                        <Icon name="Shield" size={18} className="sm:text-xl text-emerald-600 mr-2" />
+                        <span className="font-bold text-emerald-700 text-sm sm:text-base">30-Day Money-Back Guarantee</span>
                       </div>
-                      <p className="text-sm text-text-secondary">
+                      <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
                         If you're not completely satisfied, get a full refund within 30 days
                       </p>
                     </div>

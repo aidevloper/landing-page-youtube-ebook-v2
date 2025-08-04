@@ -152,21 +152,15 @@ html {
     overflow: hidden !important;
   }
   
-  /* Strong horizontal scroll prevention for mobile */
+  /* Only prevent horizontal scrolling on mobile */
   body, html {
     overflow-x: hidden !important;
     max-width: 100vw !important;
-    position: relative !important;
   }
   
-  /* All containers max width */
-  .container-max,
-  .section-padding,
-  .premium-card,
-  .grid,
-  .flex {
-    max-width: 100% !important;
-    overflow-x: hidden !important;
+  /* Allow vertical scrolling on mobile */
+  body {
+    overflow-y: auto !important;
   }
 }
 
@@ -403,28 +397,15 @@ img {
   }
 }
 
-/* Global horizontal scroll prevention */
-html, body, #root, .dhiwise-code {
+/* Only prevent horizontal scrolling, allow vertical */
+html, body {
   overflow-x: hidden !important;
   max-width: 100vw !important;
-  position: relative !important;
 }
 
-/* Prevent any element from causing horizontal scroll */
-* {
-  max-width: 100% !important;
-}
-
-/* Force all containers to respect viewport width */
-.container-max,
-.section-padding,
-.premium-card,
-.grid,
-.flex,
-.relative,
-.absolute {
-  max-width: 100% !important;
-  overflow-x: hidden !important;
+/* Allow vertical scrolling */
+body {
+  overflow-y: auto !important;
 }
 
 /* Prevent touch gestures that might cause navigation */
@@ -443,28 +424,46 @@ html, body, #root, .dhiwise-code {
   }
 }
 
-/* Prevent scrolling on images */
-img {
+/* Only prevent scrolling on images, not containers */
+img,
+img * {
   overflow: hidden !important;
   scroll-behavior: auto !important;
   -webkit-overflow-scrolling: auto !important;
-}
-
-/* Prevent scrolling on image containers */
-.relative img,
-.absolute img,
-img[src*="youtube"] {
-  overflow: hidden !important;
-  scroll-behavior: auto !important;
-  -webkit-overflow-scrolling: auto !important;
+  overscroll-behavior: none !important;
   pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  touch-action: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
-/* Image container no scroll */
-.image-container,
-[class*="image"],
-[class*="Image"] {
+/* Specific image scrolling prevention */
+img[src*="youtube"],
+img[src*="youtube1"],
+img[alt*="YouTube"],
+img[alt*="youtube"] {
   overflow: hidden !important;
   scroll-behavior: auto !important;
   -webkit-overflow-scrolling: auto !important;
+  overscroll-behavior: none !important;
+  pointer-events: none !important;
+  touch-action: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+/* Only remove transforms from images */
+img {
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+  will-change: auto !important;
 }

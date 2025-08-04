@@ -20,12 +20,12 @@ const buttonVariants = cva(
                 danger: "bg-error text-error-foreground hover:bg-error/90",
             },
             size: {
-                default: "h-10 px-4 py-2",
-                sm: "h-9 rounded-md px-3",
-                lg: "h-11 rounded-md px-8",
-                icon: "h-10 w-10",
-                xs: "h-8 rounded-md px-2 text-xs",
-                xl: "h-12 rounded-md px-10 text-base",
+                default: "h-12 sm:h-10 px-4 sm:px-4 py-3 sm:py-2 rounded-lg sm:rounded-md text-base sm:text-sm",
+                sm: "h-10 sm:h-9 rounded-lg sm:rounded-md px-3 text-sm",
+                lg: "h-12 sm:h-11 rounded-lg sm:rounded-md px-6 sm:px-8 text-base sm:text-sm",
+                icon: "h-12 sm:h-10 w-12 sm:w-10 rounded-lg sm:rounded-md",
+                xs: "h-10 sm:h-8 rounded-lg sm:rounded-md px-3 sm:px-2 text-sm sm:text-xs",
+                xl: "h-14 sm:h-12 rounded-lg sm:rounded-md px-8 sm:px-10 text-lg sm:text-base",
             },
         },
         defaultVariants: {
