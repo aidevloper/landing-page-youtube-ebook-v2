@@ -140,8 +140,14 @@
   }
   
   @keyframes glow {
-    from { box-shadow: 0 0 20px rgba(246, 224, 94, 0.2); }
-    to { box-shadow: 0 0 40px rgba(246, 224, 94, 0.4); }
+    from { 
+      box-shadow: 0 0 20px rgba(246, 224, 94, 0.2);
+      filter: brightness(1);
+    }
+    to { 
+      box-shadow: 0 0 40px rgba(246, 224, 94, 0.6);
+      filter: brightness(1.2);
+    }
   }
   
   .parallax-bg {

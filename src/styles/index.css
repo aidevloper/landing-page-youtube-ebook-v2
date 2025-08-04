@@ -2,6 +2,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: Inter;
+  /* Strong horizontal scroll prevention */
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  position: relative !important;
 }
 
 * {
@@ -10,50 +15,159 @@ body {
   font-family: inherit;
   margin: unset;
 }
+
+/* Strong touch/swipe navigation prevention */
+html, body {
+  overscroll-behavior-x: none !important;
+  overscroll-behavior-y: contain !important;
+  -webkit-overflow-scrolling: touch;
+  /* Prevent any horizontal scrolling */
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+/* Prevent horizontal scrolling on all elements */
+* {
+  max-width: 100% !important;
+}
+
+/* Container max width prevention */
+.container-max {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+/* Prevent any element from causing horizontal scroll */
+.section-padding,
+.premium-card,
+.grid,
+.flex {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
 /* Mobile Optimization Fixes */
 /* Mobile-first responsive design */
-html { font-size: 14px; }
-@media (min-width: 640px) { html { font-size: 16px; } }
+html { 
+  font-size: 14px; 
+  scroll-behavior: smooth;
+  overflow-x: hidden !important;
+}
+
+@media (min-width: 640px) { 
+  html { font-size: 16px; } 
+}
 
 /* Mobile optimization improvements */
 @media (max-width: 640px) {
   /* Mobile text sizing */
-  h1 { font-size: 1.75rem !important; line-height: 1.2 !important; }
-  h2 { font-size: 1.5rem !important; line-height: 1.3 !important; }
-  h3 { font-size: 1.25rem !important; line-height: 1.4 !important; }
+  h1 { font-size: 1.5rem !important; line-height: 1.2 !important; }
+  h2 { font-size: 1.25rem !important; line-height: 1.3 !important; }
+  h3 { font-size: 1.125rem !important; line-height: 1.4 !important; }
   p { font-size: 0.875rem !important; line-height: 1.5 !important; }
   
   /* Mobile spacing */
-  .section-padding { padding: 2rem 1rem !important; }
-  .container-max { padding-left: 1rem !important; padding-right: 1rem !important; }
+  .section-padding { padding: 1.5rem 1rem !important; }
+  .container-max { 
+    padding-left: 1rem !important; 
+    padding-right: 1rem !important; 
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
   
   /* Mobile grid adjustments */
-  .grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+  .grid { 
+    grid-template-columns: 1fr !important; 
+    gap: 1rem !important; 
+    max-width: 100% !important;
+  }
   
   /* Mobile button sizing */
   button, .btn-primary { 
     min-height: 44px !important; 
     padding: 0.75rem 1rem !important; 
     font-size: 0.875rem !important; 
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   /* Mobile card adjustments */
   .premium-card { 
     padding: 1rem !important; 
     border-radius: 0.75rem !important; 
+    margin: 0.5rem 0 !important;
+    max-width: 100% !important;
   }
   
   /* Mobile image optimization */
-  img { max-width: 100% !important; height: auto !important; }
+  img { 
+    max-width: 100% !important; 
+    height: auto !important; 
+    display: block !important;
+  }
   
   /* Mobile navigation */
-  .mobile-menu-panel { width: 100% !important; max-width: 100% !important; }
+  .mobile-menu-panel { 
+    width: 100% !important; 
+    max-width: 100% !important; 
+  }
   
-  /* Mobile floating elements */
-  .floating-animation { animation: none !important; }
+  /* Mobile floating elements - optimized animations */
+  .floating-animation { 
+    animation: float 4s ease-in-out infinite !important;
+    animation-duration: 4s !important;
+  }
   
   /* Mobile background optimization */
-  .premium-gradient { background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%) !important; }
+  .premium-gradient { 
+    background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%) !important; 
+  }
+  
+  /* Mobile layout fixes */
+  .lg\\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Mobile text alignment */
+  .text-center {
+    text-align: center !important;
+  }
+  
+  /* Mobile spacing fixes */
+  .space-y-4 > * + * {
+    margin-top: 1rem !important;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1.5rem !important;
+  }
+  
+  /* Mobile image container */
+  .relative {
+    position: relative !important;
+  }
+  
+  /* Mobile overflow fixes */
+  .overflow-hidden {
+    overflow: hidden !important;
+  }
+  
+  /* Strong horizontal scroll prevention for mobile */
+  body, html {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    position: relative !important;
+  }
+  
+  /* All containers max width */
+  .container-max,
+  .section-padding,
+  .premium-card,
+  .grid,
+  .flex {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
 }
 
 /* Tablet optimization */
@@ -65,6 +179,11 @@ html { font-size: 14px; }
   
   .section-padding { padding: 3rem 2rem !important; }
   .container-max { padding-left: 2rem !important; padding-right: 2rem !important; }
+  
+  /* Tablet grid adjustments */
+  .lg\\:grid-cols-2 {
+    grid-template-columns: 1fr 1fr !important;
+  }
 }
 
 /* Touch target optimization */
@@ -78,8 +197,40 @@ html { font-size: 14px; }
   * { -webkit-overflow-scrolling: touch !important; }
   
   /* Optimize animations for mobile */
-  .floating-animation, .pulse-glow { 
-    animation-duration: 2s !important; 
+  .floating-animation { 
+    animation-duration: 4s !important; 
+  }
+  .pulse-glow { 
+    animation-duration: 3s !important; 
+  }
+  .glow-effect {
+    animation-duration: 3s !important;
+  }
+  
+  /* Prevent swipe navigation */
+  body {
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: contain;
+  }
+  
+  /* Mobile layout improvements */
+  .flex {
+    flex-direction: column !important;
+  }
+  
+  .sm\\:flex-row {
+    flex-direction: row !important;
+  }
+  
+  /* Mobile image sizing */
+  .w-full {
+    width: 100% !important;
+  }
+  
+  /* Mobile container */
+  .container-max {
+    max-width: 100% !important;
+    margin: 0 auto !important;
   }
 }
 
@@ -97,6 +248,15 @@ html { font-size: 14px; }
   
   /* Reduce shadow complexity */
   .shadow-2xl { box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important; }
+  
+  /* Mobile specific fixes */
+  .min-h-\[60vh\] {
+    min-height: 50vh !important;
+  }
+  
+  .sm\\:min-h-screen {
+    min-height: 100vh !important;
+  }
 }
 
 /* Performance Optimizations for Smooth Scrolling */
@@ -112,18 +272,21 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Reduce animation complexity on mobile for better performance */
+/* Optimize animations for mobile performance */
 @media (max-width: 768px) {
   .floating-animation {
-    animation: none !important;
+    animation: float 4s ease-in-out infinite !important;
+    animation-duration: 4s !important;
   }
   
   .pulse-glow {
-    animation: none !important;
+    animation: pulse-glow 3s ease-in-out infinite !important;
+    animation-duration: 3s !important;
   }
   
   .glow-effect {
-    animation: none !important;
+    animation: glow 3s ease-in-out infinite alternate !important;
+    animation-duration: 3s !important;
   }
   
   /* Reduce blur effects */
@@ -205,4 +368,77 @@ img {
   height: auto;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+}
+
+/* Enhanced yellow glow animation */
+.yellow-glow {
+  animation: yellowGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes yellowGlow {
+  from {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+    filter: brightness(1) drop-shadow(0 0 10px rgba(255, 255, 0, 0.5));
+  }
+  to {
+    box-shadow: 0 0 40px rgba(255, 255, 0, 0.7);
+    filter: brightness(1.3) drop-shadow(0 0 20px rgba(255, 255, 0, 0.8));
+  }
+}
+
+/* Background yellow glow */
+.yellow-bg-glow {
+  background: radial-gradient(circle, rgba(255, 255, 0, 0.1) 0%, transparent 70%);
+  animation: yellowBgGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes yellowBgGlow {
+  from {
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.1) 0%, transparent 70%);
+    transform: scale(1);
+  }
+  to {
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.3) 0%, transparent 70%);
+    transform: scale(1.1);
+  }
+}
+
+/* Global horizontal scroll prevention */
+html, body, #root, .dhiwise-code {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  position: relative !important;
+}
+
+/* Prevent any element from causing horizontal scroll */
+* {
+  max-width: 100% !important;
+}
+
+/* Force all containers to respect viewport width */
+.container-max,
+.section-padding,
+.premium-card,
+.grid,
+.flex,
+.relative,
+.absolute {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Prevent touch gestures that might cause navigation */
+@media (max-width: 768px) {
+  body {
+    overscroll-behavior-x: none !important;
+    overscroll-behavior-y: contain !important;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Prevent any horizontal scroll on mobile */
+  * {
+    max-width: 100% !important;
+  }
 }

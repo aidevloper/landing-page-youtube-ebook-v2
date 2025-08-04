@@ -26,13 +26,68 @@ const LandingPage = () => {
     // Smooth scrolling for the entire page
     document.documentElement.style.scrollBehavior = 'smooth';
 
+    // Strong prevention of horizontal scrolling and navigation
+    const preventHorizontalScroll = (e) => {
+      // Prevent any horizontal scrolling
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    };
+
+    const preventTouchNavigation = (e) => {
+      // Prevent horizontal touch gestures
+      const touch = e.touches[0];
+      const startX = parseFloat(e.target.dataset.touchStartX || touch.clientX);
+      const startY = parseFloat(e.target.dataset.touchStartY || touch.clientY);
+      
+      const deltaX = Math.abs(touch.clientX - startX);
+      const deltaY = Math.abs(touch.clientY - startY);
+      
+      // If horizontal movement is significant, prevent it
+      if (deltaX > deltaY && deltaX > 30) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    };
+
+    // Store touch positions
+    document.addEventListener('touchstart', (e) => {
+      e.target.dataset.touchStartX = e.touches[0].clientX;
+      e.target.dataset.touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    // Prevent horizontal touch movement
+    document.addEventListener('touchmove', preventTouchNavigation, { passive: false });
+    document.addEventListener('touchend', preventTouchNavigation, { passive: false });
+
+    // Prevent wheel horizontal scrolling
+    document.addEventListener('wheel', preventHorizontalScroll, { passive: false });
+    document.addEventListener('scroll', preventHorizontalScroll, { passive: false });
+
+    // Prevent any horizontal scroll on window resize
+    window.addEventListener('resize', () => {
+      document.body.style.overflowX = 'hidden';
+      document.documentElement.style.overflowX = 'hidden';
+    });
+
+    // Force horizontal scroll prevention
+    document.body.style.overflowX = 'hidden';
+    document.documentElement.style.overflowX = 'hidden';
+
     return () => {
       document.documentElement.style.scrollBehavior = 'auto';
+      document.removeEventListener('wheel', preventHorizontalScroll);
+      document.removeEventListener('scroll', preventHorizontalScroll);
+      document.removeEventListener('touchmove', preventTouchNavigation);
+      document.removeEventListener('touchend', preventTouchNavigation);
     };
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Header />
       
       {/* Hero Section - Above the fold conversion focus */}

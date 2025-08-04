@@ -47,15 +47,19 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[60vh] sm:min-h-screen premium-gradient overflow-hidden">
-      {/* Optimized background for better performance */}
+      {/* Animated background with optimized performance */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-5 w-24 h-24 sm:top-20 sm:left-10 sm:w-72 sm:h-72 bg-emerald-100/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-5 w-32 h-32 sm:bottom-20 sm:right-10 sm:w-96 sm:h-96 bg-success/15 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[800px] sm:h-[800px] bg-emerald-50/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-10 left-5 w-24 h-24 sm:top-20 sm:left-10 sm:w-72 sm:h-72 bg-emerald-100/20 rounded-full blur-3xl floating-animation"></div>
+        <div className="absolute bottom-10 right-5 w-32 h-32 sm:bottom-20 sm:right-10 sm:w-96 sm:h-96 bg-success/15 rounded-full blur-3xl floating-animation" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[800px] sm:h-[800px] bg-emerald-50/10 rounded-full blur-3xl pulse-glow"></div>
+        
+        {/* Animated particles */}
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald-400 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-success rounded-full animate-ping" style={{animationDelay: '1.5s'}}></div>
       </div>
 
       <div className="relative z-10 container-max py-8 sm:py-16 px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-12 items-center min-h-[60vh] sm:min-h-screen">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 items-center min-h-[60vh] sm:min-h-screen">
           {/* Mobile-optimized content */}
           <div className="text-center lg:text-left space-y-4 sm:space-y-6">
             {/* Trust badge */}
@@ -64,7 +68,7 @@ const HeroSection = () => {
               <span>Trusted by {currentStudentCount.toLocaleString('en-IN')}+ Students</span>
             </div>
 
-            {/* Mobile-optimized headline */}
+            {/* Animated headline with glow effect */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight font-playfair">
               Build Your{' '}
               <span className="gradient-text">Six-Figure</span>{' '}
@@ -81,7 +85,7 @@ const HeroSection = () => {
             </p>
 
             {/* Mobile-optimized benefits */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
               <div className="flex items-center justify-center sm:justify-start space-x-2 text-white/90 bg-white/10 backdrop-blur-sm p-2 sm:p-3 rounded-lg">
                 <Icon name="CheckCircle" size={16} className="sm:w-5 sm:h-5 text-success" />
                 <span className="text-xs sm:text-sm font-medium">No Camera Required</span>
@@ -97,7 +101,7 @@ const HeroSection = () => {
             </div>
 
             {/* Trust indicators */}
-            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-3 sm:gap-6 text-white/80 text-xs sm:text-sm">
+            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-2 sm:gap-3 lg:gap-6 text-white/80 text-xs sm:text-sm">
               <div className="flex items-center space-x-2">
                 <Icon name="Shield" size={14} className="sm:w-4 sm:h-4 text-success" />
                 <span>SSL Secured</span>
@@ -113,10 +117,13 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Mobile-optimized image section */}
+          {/* Image section with yellow glow background */}
           <div className="relative mt-6 lg:mt-0">
+            {/* Yellow glow background behind image */}
+            <div className="absolute -inset-2 sm:-inset-4 bg-yellow-200/30 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl yellow-bg-glow"></div>
+            <div className="absolute -inset-4 sm:-inset-8 bg-yellow-100/20 rounded-2xl sm:rounded-3xl blur-2xl sm:blur-3xl yellow-bg-glow" style={{animationDelay: '1s'}}></div>
             <div className="relative z-20">
-              <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-2 sm:p-4">
+              <div className="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-4">
                 <Image
                   src="/assets/images/youtube1-1753769145253.jpg"
                   alt="Build a Six-Figure Faceless YouTube Channel in 2025 - AI Powered Ebook"
@@ -124,23 +131,23 @@ const HeroSection = () => {
                 />
               </div>
               
-              {/* Mobile-optimized floating elements */}
-              <div className="absolute -top-2 -left-2 sm:-top-6 sm:-left-6 success-gradient text-white px-2 sm:px-6 py-1 sm:py-3 rounded-lg sm:rounded-xl shadow-2xl">
+              {/* Animated floating elements */}
+              <div className="absolute -top-1 -left-1 sm:-top-2 sm:-left-2 lg:-top-6 lg:-left-6 success-gradient text-white px-1 sm:px-2 lg:px-6 py-1 sm:py-2 lg:py-3 rounded-md sm:rounded-lg lg:rounded-xl shadow-lg sm:shadow-xl lg:shadow-2xl floating-animation glow-effect">
                 <div className="text-xs font-medium">Monthly Revenue</div>
-                <div className="text-sm sm:text-xl font-bold">₹4,50,000+</div>
+                <div className="text-sm sm:text-lg lg:text-xl font-bold">₹4,50,000+</div>
               </div>
               
-              <div className="absolute -bottom-2 -right-2 sm:-bottom-6 sm:-right-6 emerald-gradient text-white px-2 sm:px-6 py-1 sm:py-3 rounded-lg sm:rounded-xl shadow-2xl">
+              <div className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 lg:-bottom-6 lg:-right-6 emerald-gradient text-white px-1 sm:px-2 lg:px-6 py-1 sm:py-2 lg:py-3 rounded-md sm:rounded-lg lg:rounded-xl shadow-lg sm:shadow-xl lg:shadow-2xl floating-animation glow-effect" style={{animationDelay: '0.5s'}}>
                 <div className="text-xs font-medium">Success Rate</div>
-                <div className="text-sm sm:text-xl font-bold">94.7%</div>
+                <div className="text-sm sm:text-lg lg:text-xl font-bold">94.7%</div>
               </div>
               
-              <div className="absolute top-1/2 -right-4 sm:-right-10 bg-white text-primary px-2 sm:px-4 py-1 sm:py-3 rounded-lg sm:rounded-xl shadow-2xl">
+              <div className="absolute top-1/2 -right-2 sm:-right-4 lg:-right-10 bg-white text-primary px-1 sm:px-2 lg:px-4 py-1 sm:py-2 lg:py-3 rounded-md sm:rounded-lg lg:rounded-xl shadow-lg sm:shadow-xl lg:shadow-2xl">
                 <div className="text-xs font-medium">Avg. Setup Time</div>
                 <div className="text-xs sm:text-sm font-bold">30 Days</div>
               </div>
 
-              <div className="absolute top-1/4 -left-4 sm:-left-8 bg-success/20 backdrop-blur-sm text-success px-2 sm:px-3 py-1 sm:py-2 rounded-lg shadow-lg">
+              <div className="absolute top-1/4 -left-2 sm:-left-4 lg:-left-8 bg-success/20 backdrop-blur-sm text-success px-1 sm:px-2 lg:px-3 py-1 sm:py-2 rounded-md sm:rounded-lg shadow-lg">
                 <div className="text-xs font-medium">AI Powered</div>
               </div>
             </div>
@@ -148,8 +155,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Optimized scroll indicator */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-white/70">
+      {/* Animated scroll indicator */}
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 animate-bounce">
         <div className="flex flex-col items-center space-y-1 sm:space-y-2">
           <Icon name="ChevronDown" size={20} className="sm:w-6 sm:h-6" />
           <span className="text-xs font-medium">Scroll to explore</span>
