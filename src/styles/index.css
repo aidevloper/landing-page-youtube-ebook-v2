@@ -442,3 +442,29 @@ html, body, #root, .dhiwise-code {
     max-width: 100% !important;
   }
 }
+
+/* Prevent scrolling on images */
+img {
+  overflow: hidden !important;
+  scroll-behavior: auto !important;
+  -webkit-overflow-scrolling: auto !important;
+}
+
+/* Prevent scrolling on image containers */
+.relative img,
+.absolute img,
+img[src*="youtube"] {
+  overflow: hidden !important;
+  scroll-behavior: auto !important;
+  -webkit-overflow-scrolling: auto !important;
+  pointer-events: none !important;
+}
+
+/* Image container no scroll */
+.image-container,
+[class*="image"],
+[class*="Image"] {
+  overflow: hidden !important;
+  scroll-behavior: auto !important;
+  -webkit-overflow-scrolling: auto !important;
+}

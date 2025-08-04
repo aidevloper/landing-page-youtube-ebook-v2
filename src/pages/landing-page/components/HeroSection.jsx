@@ -117,17 +117,18 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Image section with yellow glow background */}
-          <div className="relative mt-6 lg:mt-0">
+          {/* Image section with yellow glow background - no scrolling */}
+          <div className="relative mt-6 lg:mt-0 overflow-hidden">
             {/* Yellow glow background behind image */}
             <div className="absolute -inset-2 sm:-inset-4 bg-yellow-200/30 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl yellow-bg-glow"></div>
             <div className="absolute -inset-4 sm:-inset-8 bg-yellow-100/20 rounded-2xl sm:rounded-3xl blur-2xl sm:blur-3xl yellow-bg-glow" style={{animationDelay: '1s'}}></div>
             <div className="relative z-20">
-              <div className="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-4">
+              <div className="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-4 overflow-hidden">
                 <Image
                   src="/assets/images/youtube1-1753769145253.jpg"
                   alt="Build a Six-Figure Faceless YouTube Channel in 2025 - AI Powered Ebook"
-                  className="w-full h-auto rounded-lg sm:rounded-xl shadow-2xl"
+                  className="w-full h-auto rounded-lg sm:rounded-xl shadow-2xl overflow-hidden"
+                  style={{ scrollBehavior: 'auto', overflow: 'hidden' }}
                 />
               </div>
               
