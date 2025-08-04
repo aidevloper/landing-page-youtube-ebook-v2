@@ -209,7 +209,7 @@ const CheckoutPage = () => {
 
   const paymentMethods = [
     { id: 'razorpay', name: 'Razorpay (All Methods)', icon: 'CreditCard', description: 'Cards, UPI, Net Banking, Wallets' },
-    { id: 'upi', name: 'UPI Payment', icon: 'Smartphone', description: 'PhonePe, Google Pay, Paytm' },
+    { id: 'upi', name: 'UPI Payment', icon: 'Smartphone', description: 'PhonePe, Google Pay, Paytm, BHIM' },
     { id: 'netbanking', name: 'Net Banking', icon: 'Building', description: 'All major banks supported' }
   ];
 
@@ -252,13 +252,15 @@ const CheckoutPage = () => {
               <div className="order-2 lg:order-1">
                 <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 sticky top-20 sm:top-24">
                   {/* Product Information */}
-                  <div className="flex items-start space-x-3 sm:space-x-4 mb-6 sm:mb-8">
-                    <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-lg sm:rounded-xl flex items-center justify-center">
-                      <Icon name="BookOpen" size={20} className="sm:text-2xl text-emerald-600" />
+                  <div className="text-center mb-8">
+                    <div className="flex justify-center mb-4">
+                      <div className="w-20 h-20 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl flex items-center justify-center">
+                        <Icon name="BookOpen" size={32} className="text-emerald-600" />
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-lg sm:text-xl font-bold text-primary mb-1 sm:mb-2 leading-tight">{productDetails.name}</h3>
-                      <p className="text-text-secondary text-xs sm:text-sm leading-relaxed">{productDetails.description}</p>
+                    <div>
+                      <h3 className="text-xl font-bold text-primary mb-2">{productDetails.name}</h3>
+                      <p className="text-text-secondary text-sm">{productDetails.description}</p>
                     </div>
                   </div>
 
@@ -311,19 +313,21 @@ const CheckoutPage = () => {
                   </div>
 
                   {/* Trust Badges */}
-                  <div className="space-y-3 sm:space-y-4">
-                    <h4 className="font-bold text-primary mb-3 sm:mb-4 text-sm sm:text-base">Why Choose Us?</h4>
-                    {trustBadges.map((badge, index) => (
-                      <div key={index} className="flex items-start space-x-2 sm:space-x-3">
-                        <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-emerald-100 rounded-md sm:rounded-lg flex items-center justify-center">
-                          <Icon name={badge.icon} size={14} className="sm:text-base text-emerald-600" />
+                  <div className="space-y-6">
+                    <h4 className="font-bold text-primary mb-6 text-center">Why Choose Us?</h4>
+                    <div className="space-y-4">
+                      {trustBadges.map((badge, index) => (
+                        <div key={index} className="flex items-center justify-center space-x-3">
+                          <div className="flex-shrink-0 w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center">
+                            <Icon name={badge.icon} size={16} className="text-emerald-600" />
+                          </div>
+                          <div className="text-center">
+                            <div className="font-semibold text-primary text-sm">{badge.text}</div>
+                            <div className="text-text-secondary text-xs">{badge.desc}</div>
+                          </div>
                         </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="font-semibold text-primary text-xs sm:text-sm leading-tight">{badge.text}</div>
-                          <div className="text-text-secondary text-xs leading-relaxed">{badge.desc}</div>
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -431,29 +435,29 @@ const CheckoutPage = () => {
                     <RazorpayStatus />
 
                     {/* Payment Options */}
-                    <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
+                    <div className="space-y-4 mb-6">
                       {paymentMethods.map((method) => (
                         <button
                           key={method.id}
                           type="button"
                           onClick={() => setPaymentMethod(method.id)}
-                          className={`w-full p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 transition-all text-left ${
+                          className={`w-full p-4 rounded-xl border-2 transition-all text-left ${
                             paymentMethod === method.id
                               ? 'border-emerald-500 bg-emerald-50'
                               : 'border-gray-200 hover:border-emerald-300'
                           }`}
                         >
-                          <div className="flex items-center space-x-3 sm:space-x-4">
-                            <Icon name={method.icon} size={20} className={`sm:text-2xl ${
+                          <div className="flex items-center space-x-4">
+                            <Icon name={method.icon} size={24} className={
                               paymentMethod === method.id ? 'text-emerald-600' : 'text-gray-400'
-                            }`} />
-                            <div className="min-w-0 flex-1">
-                              <div className={`font-semibold text-sm sm:text-base ${
+                            } />
+                            <div>
+                              <div className={`font-semibold ${
                                 paymentMethod === method.id ? 'text-emerald-600' : 'text-gray-900'
                               }`}>
                                 {method.name}
                               </div>
-                              <div className="text-xs sm:text-sm text-gray-500 leading-relaxed">{method.description}</div>
+                              <div className="text-sm text-gray-500">{method.description}</div>
                             </div>
                           </div>
                         </button>
@@ -477,17 +481,23 @@ const CheckoutPage = () => {
                   {/* Security & Complete Purchase */}
                   <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8">
                     {/* Security Features */}
-                    <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
-                      {securityFeatures.map((feature, index) => (
-                        <div key={index} className="flex items-center space-x-2 text-xs sm:text-sm text-text-secondary">
-                          <Icon name={feature.icon} size={14} className="sm:text-base text-emerald-600" />
-                          <span className="whitespace-nowrap">{feature.text}</span>
-                        </div>
-                      ))}
+                    <div className="flex justify-center items-center space-x-8 mb-8">
+                      <div className="flex items-center space-x-2 text-sm text-text-secondary">
+                        <Icon name="Shield" size={16} className="text-emerald-600" />
+                        <span>SSL Secured</span>
+                      </div>
+                      <div className="flex items-center space-x-2 text-sm text-text-secondary">
+                        <Icon name="Lock" size={16} className="text-emerald-600" />
+                        <span>256-bit Encryption</span>
+                      </div>
+                      <div className="flex items-center space-x-2 text-sm text-text-secondary">
+                        <Icon name="CheckCircle" size={16} className="text-emerald-600" />
+                        <span>PCI Compliant</span>
+                      </div>
                     </div>
 
                     {/* Complete Purchase Buttons */}
-                    <div className="space-y-3 sm:space-y-4">
+                    <div className="space-y-4">
                       <Button
                         type="submit"
                         variant="default"
@@ -495,7 +505,7 @@ const CheckoutPage = () => {
                         fullWidth
                         loading={isProcessing}
                         disabled={orderCreated}
-                        className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-bold text-lg sm:text-xl py-4 sm:py-6 rounded-lg sm:rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
+                        className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-bold text-xl py-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
                         iconName={isProcessing ? null : "CreditCard"}
                         iconPosition="left"
                       >
@@ -511,7 +521,7 @@ const CheckoutPage = () => {
                         size="xl"
                         fullWidth
                         onClick={handleDemoPayment}
-                        className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 font-semibold py-4 sm:py-6 rounded-lg sm:rounded-xl transition-all duration-200 text-base sm:text-lg"
+                        className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 font-semibold py-6 rounded-xl transition-all duration-200"
                         iconName="Play"
                         iconPosition="left"
                       >
@@ -519,17 +529,17 @@ const CheckoutPage = () => {
                       </Button>
                     </div>
 
-                    <div className="text-center mt-3 sm:mt-4 text-xs sm:text-sm text-text-secondary leading-relaxed">
+                    <div className="text-center mt-4 text-sm text-text-secondary">
                       By completing your purchase, you agree to our Terms of Service and Privacy Policy
                     </div>
 
                     {/* Money Back Guarantee */}
-                    <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gradient-to-r from-emerald-50 to-success/10 rounded-lg sm:rounded-xl text-center">
+                    <div className="mt-6 p-4 bg-gradient-to-r from-emerald-50 to-success/10 rounded-xl text-center">
                       <div className="flex items-center justify-center mb-2">
-                        <Icon name="Shield" size={18} className="sm:text-xl text-emerald-600 mr-2" />
-                        <span className="font-bold text-emerald-700 text-sm sm:text-base">30-Day Money-Back Guarantee</span>
+                        <Icon name="Shield" size={20} className="text-emerald-600 mr-2" />
+                        <span className="font-bold text-emerald-700">30-Day Money-Back Guarantee</span>
                       </div>
-                      <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
+                      <p className="text-sm text-text-secondary">
                         If you're not completely satisfied, get a full refund within 30 days
                       </p>
                     </div>

@@ -322,15 +322,17 @@ const CheckoutPage = () => {
               
               {/* Left Column - Order Summary */}
               <div className="order-2 lg:order-1">
-                <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
+                <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 sticky top-20 sm:top-24">
                   {/* Product Information */}
-                  <div className="flex items-start space-x-4 mb-8">
-                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl flex items-center justify-center">
-                      <Icon name="BookOpen" size={24} className="text-emerald-600" />
+                  <div className="text-center mb-6 sm:mb-8">
+                    <div className="flex justify-center mb-3 sm:mb-4">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl flex items-center justify-center">
+                        <Icon name="BookOpen" size={24} className="sm:text-3xl text-emerald-600" />
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-primary mb-2">{productDetails.name}</h3>
-                      <p className="text-text-secondary text-sm">{productDetails.description}</p>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-primary mb-2 leading-tight">{productDetails.name}</h3>
+                      <p className="text-text-secondary text-xs sm:text-sm leading-relaxed max-w-xs mx-auto">{productDetails.description}</p>
                     </div>
                   </div>
 
